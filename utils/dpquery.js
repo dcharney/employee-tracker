@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
 const cTable = require('console.table');
+const { menu } = require('./employeeManager');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -17,8 +18,15 @@ const dbquery = (sql, params, msg ) => {
     connection.query( sql, params, function(err, res) {
         if (err) throw err;
         if (msg) {console.log(msg)}
-        else { console.table(res)};
+        else { 
+            console.table(res)
+            menu();
+        };
     });
 };
 
-module.exports = dbquery;
+const quit = () => {
+    connection.end();
+};
+
+module.exports = { dbquery, quit };

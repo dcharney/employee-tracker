@@ -1,30 +1,7 @@
 const inquirer = require('inquirer');
-const prompts = require('../lib/user-prompts');
-const { viewDepartments, addDepartment } = require('./departments');
-const { viewEmployees, addEmployee, updateEmployeeRole } = require('./employees');
-const { viewRoles, addRole } = require('./roles');
+const { prompts, intro } = require('../lib/user-prompts');
 
-init = () => {
-    console.log(`
-    ███████ ███    ███ ██████  ██       ██████  ██    ██ ███████ ███████ 
-    ██      ████  ████ ██   ██ ██      ██    ██  ██  ██  ██      ██      
-    █████   ██ ████ ██ ██████  ██      ██    ██   ████   █████   █████   
-    ██      ██  ██  ██ ██      ██      ██    ██    ██    ██      ██      
-    ███████ ██      ██ ██      ███████  ██████     ██    ███████ ███████ 
-                                                                         
-                                                                         
-    ███    ███  █████  ███    ██  █████   ██████  ███████ ██████         
-    ████  ████ ██   ██ ████   ██ ██   ██ ██       ██      ██   ██        
-    ██ ████ ██ ███████ ██ ██  ██ ███████ ██   ███ █████   ██████         
-    ██  ██  ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██      ██   ██        
-    ██      ██ ██   ██ ██   ████ ██   ██  ██████  ███████ ██   ██        
-                                                                         
-~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~*~~~                                                                         
-    `)
-    index();
-};
-
-index = () => {
+const menu = () => {
     inquirer
         .prompt(prompts)
             .then(res => {
@@ -57,4 +34,13 @@ index = () => {
             });
 };
 
-module.exports = init;
+const init = () => {
+    console.log(intro);
+    menu();
+}
+
+module.exports = { menu, init };
+const { viewDepartments, addDepartment } = require('./departments');
+const { viewEmployees, addEmployee, updateEmployeeRole } = require('./employees');
+const { viewRoles, addRole } = require('./roles');
+const { quit } = require('./dpquery');

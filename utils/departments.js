@@ -1,5 +1,6 @@
-const dbquery = require('./dpquery');
+const { dbquery } = require('./dpquery');
 const sql = require('../lib/sql-prompts');
+const { menu } = require('./employeeManager');
 
 viewDepartments = () => {
     let msg = false;

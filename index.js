@@ -1,3 +1,3 @@
-const employeeManger = require('./utils/employeeManager');
+const { init } = require('./utils/employeeManager');
 
-employeeManger();
+init();
