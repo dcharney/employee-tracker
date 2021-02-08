@@ -44,7 +44,6 @@ const addEmployee = () => {
                 newEmployee.role_id,
                 newEmployee.manager_id
             ];
-            console.log(params);
             dbquery(sql.employees.add, params, msg);
         });
 };
@@ -87,7 +86,6 @@ const updateEmployee = () => {
         .then(res => {
             let msg = `${(params[0]).concat(' ', params[1])}'s role has been updated.`;
             params.unshift(res.ID);
-            console.log(params);
             dbquery(sql.employees.update, params, msg);
         });
 };
