@@ -10,17 +10,29 @@ const menu = () => {
             case 'View All Roles':
                 viewRoles();
                 break;
+            case 'View All Employees':
+                viewEmployees();
+                break;
             case 'Add a Department':
                 addDepartment();
                 break;
-            case 'Add Role':
+            case 'Add a Role':
                 addRole();
+                break;
+            case 'Add an Employee':
+                addEmployee();
                 break;
             case 'Remove a Department':
                 removeDepartment();
                 break;
             case 'Remove a Role':
                 removeRole();
+                break;
+            case 'Remove an Employee':
+                removeEmployee();
+                break;
+            case `Update an Employee's Role`:
+                updateEmployee();
                 break;
             case 'View Raw':
                 viewRaw();
@@ -36,3 +48,4 @@ module.exports = menu;
 const { quit, viewRaw } = require('./dbquery/index');
 const { viewDepartments, addDepartment, removeDepartment } = require('./departments');
 const { viewRoles, addRole, removeRole } = require('./roles');
+const { viewEmployees, addEmployee, removeEmployee, updateEmployee } = require('./employees');
