@@ -10,25 +10,16 @@ async function getData(db,col) {
             id: row.id,
             name: row.name
         }*/
-        row.name);
+        row[col]);
     });
     return arr;
 };
 
-const userPrompt = arr => {
-    return inquirer.prompt([
-        {
-            type: 'list',
-            name: 'departmentRemove',
-            choices: arr,
-            message: 'Which department do you want to remove?'
-        }
-    ])
-
+async function getID(db,col,val) {
+    let sql = `SELECT ID FROM ${db} WHERE ${col} = '${val}'`;
+    let [row, field] = await pool.query(sql);
+    return row;
 };
 
-module.exports = getData;
+module.exports = { getData, getID };
 
-//getData('departments')
-//    .then(res => console.log(res));
-//console.log(getData('departments'));

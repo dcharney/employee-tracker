@@ -6,7 +6,6 @@ async function dbquery(sql, params, msg) {
     let res = await pool.query(sql, params);
     if (msg) {console.log(msg)}
     else {console.table(res)};
-    //quit();
     menu();
 };
 
@@ -15,4 +14,11 @@ const quit = () => {
     console.log('Thank you, goodbye.');
 };
 
-module.exports = { dbquery, quit };
+// for test purposes
+const viewRaw = () => {
+//    dbquery(`SELECT * FROM departments;`);
+    dbquery(`SELECT * FROM roles;`);
+//    dbquery(`SELECT * FROM employees;`);
+}
+
+module.exports = { dbquery, quit, viewRaw };

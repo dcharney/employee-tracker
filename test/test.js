@@ -7,11 +7,23 @@ const menu = () => {
             case 'View All Departments':
                 viewDepartments();
                 break;
+            case 'View All Roles':
+                viewRoles();
+                break;
             case 'Add a Department':
                 addDepartment();
                 break;
+            case 'Add Role':
+                addRole();
+                break;
             case 'Remove a Department':
                 removeDepartment();
+                break;
+            case 'Remove a Role':
+                removeRole();
+                break;
+            case 'View Raw':
+                viewRaw();
                 break;
             case 'Quit':
                 quit();
@@ -20,7 +32,7 @@ const menu = () => {
     });
 };
 
-
 module.exports = menu;
-const { quit } = require('./utils/dbquery');
+const { quit, viewRaw } = require('./utils/dbquery/index');
 const { viewDepartments, addDepartment, removeDepartment } = require('./utils/departments');
+const { viewRoles, addRole, removeRole } = require('./utils/roles');

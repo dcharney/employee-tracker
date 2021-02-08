@@ -15,7 +15,9 @@ FROM roles AS r
     LEFT JOIN departments AS d ON r.department_id = d.id;`,
         add: `
 INSERT INTO roles ( title, salary, department_id ) 
-    VALUES ( 'IT Consultant', 50000, 5);`
+    VALUES ( ?, ?, ?);`,
+    remove: `
+DELETE FROM roles WHERE title = ?`
     },
     employees: {
         view: `

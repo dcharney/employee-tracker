@@ -18,14 +18,7 @@ const removePrompts = arr => {
             type: 'list',
             name: 'department',
             choices: arr,
-            message: 'Which department would you like to remove? ',
-            validate: department => {
-                if (department) {
-                    return true;
-                } else {
-                    console.log('Please enter a title for department.');
-                }
-            }
+            message: 'Which department would you like to remove? '
         };
 };
 

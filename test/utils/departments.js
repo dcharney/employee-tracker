@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const { dbquery } = require('./dbquery/index');
 const sql = require('../lib/sql');
 const { addPrompts, removePrompts } = require('../lib/prompts/departments');
-const getData = require('./dbquery/responses');
+const { getData } = require('./dbquery/responses');
 
 const viewDepartments = () => {
     dbquery(sql.departments.view, false, false);
@@ -16,7 +16,7 @@ const addDepartment = () => {
 };
 
 const removeDepartment = () => {
-    getData('departments').then(res => {
+    getData('departments','name').then(res => {
         return inquirer.prompt(removePrompts(res))
     })
     .then(res => {
