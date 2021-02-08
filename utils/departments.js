@@ -1,14 +1,17 @@
-const { dbquery } = require('./dpquery');
+const { dbquery } = require('./dbquery');
 const sql = require('../lib/sql-prompts');
-const { menu } = require('./employeeManager');
+
 
 viewDepartments = () => {
-    let msg = false;
-    dbquery(sql.departments.view, [], msg);
+    dbquery(sql.departments.view, false, false);
 };
-addDepartment = () => {
-    console.log('Department has been added to db');
-    //dbquery(sql.departments.addDepartment, [], msg);
+addDepartment = title => {
+    let msg = `${title} has been added to db`;
+    dbquery(sql.departments.add, title, msg);
+};
+deleteDepartment = title => {
+    let msg = `${title} has been removed from db`;
+    dbquery(sql.departments.remove, title, msg);
 };
 
-module.exports = { viewDepartments, addDepartment };
+module.exports = { viewDepartments, addDepartment, deleteDepartment };

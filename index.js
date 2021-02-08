@@ -1,3 +1,5 @@
-const { init } = require('./utils/employeeManager');
+const { intro } = require('./lib/user-prompts');
+const menu = require('./test/test');
 
-init();
+console.log(intro);
+menu();

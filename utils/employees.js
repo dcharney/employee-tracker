@@ -1,4 +1,4 @@
-const { dbquery } = require('./dpquery');
+const { dbquery } = require('./dbquery');
 const sql = require('../lib/sql-prompts');
 
 viewEmployees = () => {
