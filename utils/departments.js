@@ -1,17 +1,28 @@
-const { dbquery } = require('./dbquery');
-const sql = require('../lib/sql-prompts');
+const inquirer = require('inquirer');
+const { dbquery } = require('./dbquery/index');
+const sql = require('../lib/sql');
+const { addPrompts, removePrompts } = require('../lib/prompts/departments');
+const { getData } = require('./dbquery/responses');
 
-
-viewDepartments = () => {
+const viewDepartments = () => {
     dbquery(sql.departments.view, false, false);
 };
-addDepartment = title => {
-    let msg = `${title} has been added to db`;
-    dbquery(sql.departments.add, title, msg);
-};
-deleteDepartment = title => {
-    let msg = `${title} has been removed from db`;
-    dbquery(sql.departments.remove, title, msg);
+
+const addDepartment = () => {
+    inquirer.prompt(addPrompts).then(res => {
+            let msg = `${res.department} has been added.`;
+            dbquery(sql.departments.add, res.department, msg);
+        });
 };
 
-module.exports = { viewDepartments, addDepartment, deleteDepartment };
+const removeDepartment = () => {
+    getData('departments','name').then(res => {
+        return inquirer.prompt(removePrompts(res))
+    })
+    .then(res => {
+            let msg = `${res.department} has been removed.`;
+            dbquery(sql.departments.remove, res.department, msg);
+        });
+};
+
+module.exports = { viewDepartments, addDepartment, removeDepartment };

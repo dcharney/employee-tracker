@@ -26,3 +26,5 @@ SELECT * FROM employees;
 UPDATE employees SET role_id = 3
 WHERE id = 8;
 SELECT * FROM employees;
+/* Testing getting id from name  */
+SELECT ID FROM departments WHERE name = Sales;

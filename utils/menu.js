@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const { question } = require('./lib/prompts/menu');
+const { question } = require('../lib/prompts/menu');
 
 const menu = () => {
     return inquirer.prompt(question).then(res => {
@@ -33,6 +33,6 @@ const menu = () => {
 };
 
 module.exports = menu;
-const { quit, viewRaw } = require('./utils/dbquery/index');
-const { viewDepartments, addDepartment, removeDepartment } = require('./utils/departments');
-const { viewRoles, addRole, removeRole } = require('./utils/roles');
+const { quit, viewRaw } = require('./dbquery/index');
+const { viewDepartments, addDepartment, removeDepartment } = require('./departments');
+const { viewRoles, addRole, removeRole } = require('./roles');

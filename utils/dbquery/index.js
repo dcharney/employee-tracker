@@ -1,6 +1,6 @@
 const cTable = require('console.table');
 const pool = require('./pool');
-const menu = require('../../test');
+const menu = require('../menu');
 
 async function dbquery(sql, params, msg) {
     let res = await pool.query(sql, params);

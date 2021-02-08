@@ -1,5 +1,5 @@
-const { intro } = require('./lib/user-prompts');
-const menu = require('./test/test');
+const { intro } = require('./lib/prompts/menu');
+const menu = require('./utils/menu');
 
 console.log(intro);
 menu();
