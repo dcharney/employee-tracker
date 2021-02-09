@@ -31,7 +31,11 @@ This application can be run in terminal by navigating to the main folder and typ
 
 All tasks will bring you back to the root menu when completed. When you are done, select the quit option from the main menu to exit the app.
 
-<iframe src="https://drive.google.com/file/d/15BKVxF5no1UoX9XAXCGur226mvpYblEd/preview" width="640" height="480"></iframe>
+ <!-- separator -->
+ <div class = "iframe_container>
+    <iframe src="https://drive.google.com/file/d/15BKVxF5no1UoX9XAXCGur226mvpYblEd/preview" allowfullscreen="allowfullscreen"> </iframe>
+</div>
+ <!-- separator -->
 
 walkthrough can also be viewed [here](https://drive.google.com/file/d/15BKVxF5no1UoX9XAXCGur226mvpYblEd/view).
 
